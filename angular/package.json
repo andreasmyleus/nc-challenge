@@ -49,6 +49,57 @@
     "typescript": "~4.8.4"
   },
   "overrides": {
-    "body-parser": "1.20.9"
+    "body-parser": "1.20.9",
+    "@grpc/grpc-js": "^1.9.16",
+    "protobufjs": "^8.4.1",
+    "proxy-addr": "^2.0.8",
+    "websocket-driver": "^0.7.5",
+    "lodash": "^4.18.0",
+    "form-data": "^4.0.6",
+    "json5": "^2.2.2",
+    "cross-spawn": "^7.0.5",
+    "browserslist": "^4.28.7",
+    "serialize-javascript": "^7.0.3",
+    "tmp": "^0.2.6",
+    "semver": "^7.5.2",
+    "minimatch": "^3.1.4",
+    "brace-expansion": "^2.1.5",
+    "node-forge": "^1.4.0",
+    "express": {
+      "path-to-regexp": "^0.1.13"
+    },
+    "koa-route": {
+      "path-to-regexp": "^1.9.0"
+    },
+    "lws-blacklist": {
+      "path-to-regexp": "^6.3.0"
+    },
+    "lws-rewrite": {
+      "path-to-regexp": "^6.3.0"
+    },
+    "@angular-devkit/build-angular": {
+      "minimatch": "^5.1.8",
+      "glob": {
+        "minimatch": "^5.1.8"
+      }
+    },
+    "cacache": {
+      "glob": {
+        "minimatch": "^5.1.8"
+      }
+    },
+    "ignore-walk": {
+      "minimatch": "^5.1.8"
+    },
+    "npm-packlist": {
+      "glob": {
+        "minimatch": "^5.1.8"
+      }
+    },
+    "read-package-json": {
+      "glob": {
+        "minimatch": "^5.1.8"
+      }
+    }
   }
 }
