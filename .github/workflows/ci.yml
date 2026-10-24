@@ -1,0 +1,64 @@
+# Minimal CI. Unit tests are omitted: on main, `ng test` already fails
+# 4 of 6 specs with AngularFire NullInjectorError (no provider for
+# angularfire2.app.options). There is no lint script, and eslint is not
+# installed. No application code is changed in this workflow.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  functions:
+    name: functions install and typecheck
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: functions
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: functions/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Typecheck and build
+        run: npm run build
+
+  angular:
+    name: angular install and build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: angular
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: angular/package-lock.json
+
+      - name: Install
+        env:
+          # E2E was removed. Skip the Cypress binary download; the app build does not need it.
+          CYPRESS_INSTALL_BINARY: "0"
+        run: npm ci
+
+      - name: Build
+        run: npm run build
