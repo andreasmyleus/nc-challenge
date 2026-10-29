@@ -101,7 +101,7 @@
         "minimatch": "^5.1.8"
       }
     },
-    "webpack": "^5.76.0",
+    "webpack": "~5.76.0",
     "adjust-sourcemap-loader": {
       "loader-utils": "^2.0.4"
     }
